@@ -1,25 +1,26 @@
 # LG U+ URECA Algorithm Study
 
-> LG 유플러스 유레카 과정 알고리즘 스터디 레포지토리입니다.  
+> LG 유플러스 유레카 과정 알고리즘 스터디 2조 레포지토리입니다.  
 > Java/Python을 활용해 꾸준히 문제를 풀이하고 알고리즘 역량을 강화합니다.
 
 ## 🎯 스터디 목표
 
 - **Java/Python을 활용한 알고리즘 역량 강화**
-- solved.ac Class별 권장 문제를 기반으로 단계적인 문제 해결 능력 향상
+- 프로그래머스별 권장 문제를 기반으로 단계적인 문제 해결 능력 향상(굿바이 백준...)
 - 주차별 풀이 기록을 통해 꾸준한 학습 습관 형성
 - 서로의 풀이를 참고하며 다양한 접근 방식 학습
 
 ## 🧩 문제 풀이 사이트
 
 - [solved.ac](https://solved.ac/)
-- 권장 방식: solved.ac의 **Class별 권장 문제**를 기준으로 주차별 문제 선정
-- 문제 출처: [Baekjoon Online Judge](https://www.acmicpc.net/)
+- 권장 방식: 프로그래머스의 레벨별 문제선정후 풀이
+- 문제 출처: https://school.programmers.co.kr/learn/challenges?order=recent&levels=0
 
 ## 🛠 사용 언어
 
 스터디 주력 언어는 **Java**와 **Python**입니다.  
 참가자는 본인이 희망하는 언어를 선택하여 풀이를 제출합니다.
+그 외에 혹시나 본인이 자신있어 하는 다른 언어 있다면 그걸로 해도 무방합니다.
 
 ## 📁 폴더 구조
 
