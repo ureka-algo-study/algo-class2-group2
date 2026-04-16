@@ -148,13 +148,13 @@ print(a + b)
 
 ## 👥 참여자 명단
 
-| 이름 | 사용 언어 | 백준 티어 |
-| --- | --- | --- |
-| 홍길동 | Java | [solved.ac 프로필](https://solved.ac/profile/아이디) |
-| 김유레카 | Python | [solved.ac 프로필](https://solved.ac/profile/아이디) |
-| 이알고 | Java/Python | [solved.ac 프로필](https://solved.ac/profile/아이디) |
-
-> 참여자 정보는 각자 이름, 주 사용 언어, solved.ac 프로필 링크로 수정해주세요.
+| 이름 | 사용 언어 |
+| --- | --- |
+| 김가원 | Python |
+| 정민주 | Java |
+| 김재우 | Java |
+| 허건 | Java |
+| 최민혁 | Java |
 
 ## ✅ 제출 체크리스트
 
