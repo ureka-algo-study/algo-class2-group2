@@ -52,6 +52,9 @@ public class Main {
     public static void paint(int x, int y,boolean[][] painted) {
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
+                if(painted[x + j][90 - y + i]) {
+                    continue;
+                } // 중복체크 이미 색칠되어 있으면 다시 if문으로
                 painted[x + j][90 - y + i] = true;
             }
         }
