@@ -1,19 +1,17 @@
-🚀 Algorithm Study (Java)
-매주 알고리즘 문제를 풀고 코드를 기록하는 저장소입니다.
+# 🚀 Algorithm Study
 
-📅 스터디 규칙
-언어: Java (OpenJDK 17+)
+매주 주차별로 알고리즘 문제를 풀고 기록하는 저장소입니다.
 
-문제 출처: Baekjoon, Programmers
+## 📂 폴더 구조
+* `week1/`, `week2/` ... 와 같이 주차별 폴더로 구분합니다.
+* 각 폴더 내에는 해당 주차에 풀이한 자바(`*.java`) 소스 코드를 보관합니다.
 
-폴더 관리: 매주 week1, week2 형식의 폴더를 생성하여 관리
-
-📂 폴더 구조
-Plaintext
+```text
 .
-├── week1/           # 1주차 풀이
-│   ├── 10828_문제명.java
-│   └── lev_문제명.java
-├── week2/           # 2주차 풀이
-├── week3/           # 3주차 풀이
+├── week1/
+│   ├── BOJ_1234.java
+│   └── PG_문자열압축.java
+├── week2/
+│   ├── BOJ_5678.java
+│   └── PG_타겟넘버.java
 └── README.md
