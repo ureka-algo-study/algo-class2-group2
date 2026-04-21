@@ -62,3 +62,7 @@ GitHub에서 PR 생성 시 **[Create Draft Pull Request]** 선택
 
 ### 💡 브랜치 재활용 팁
 `Rebase and merge`를 하면 깃허브가 "내 브랜치가 `main`보다 뒤처졌다"고 착각할 때가 있습니다. 이때 당황하지 말고 그냥 **`git pull origin main`**을 하면 로컬이 다시 최신 상태가 됩니다. 이 루틴만 익숙해지면 브랜치 하나로 스터디 끝까지 가장 깔끔하게 관리할 수 있습니다!
+
+---
+### 윈도우 사용자분들     
+제가 mac 유저라 https://bloodstrawberry.tistory.com/835  << 이거 보시고 git bash 다운받으시고 하시면 됩니당 
