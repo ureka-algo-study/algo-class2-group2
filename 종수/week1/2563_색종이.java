@@ -37,6 +37,7 @@ class Main {
 				}
 			}
 		}
+        sc.close();
 		//출력
 		System.out.println(count);
 		
