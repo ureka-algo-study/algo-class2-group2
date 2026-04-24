@@ -42,23 +42,24 @@ class Main {
         for (int i = 0; i < n; i++) {
             String stack = sc.nextLine();// 입력 받을 변수
             
-            if (stack.contains("push")) {
+            if (stack.startsWith("push")) {
                 // System.out.print("push 실행 : ");
                 String[] cmd = stack.split(" "); 
                 //입력받은걸 공백을 기준으로 자르고 두번째에 나온 문자를 인트로 바꿔서 push 함수에 입력
                 push(Integer.parseInt(cmd[1]));
-            } else if (stack.contains("pop")) { 
-                //contain을 쓴 이유는 처음 push를 작성할 때 
-                // 해당 문자를 포함하기만 하면 되지 않나라는 생각에 contain 사용
+            } else if (stack.equals("pop")) { 
+                // 처음에 contain을 쓴 이유는 처음 push를 작성할 때 
+                // 해당 문자를 포함하기만 하면 되지 않나라는 생각에 contain 사용\
+                //-> 시간초과 나
                 // System.out.print("pop 실행 : ");
                 System.out.println(pop());
-            } else if (stack.contains("size")) {
+            } else if (stack.equals("size")) {
                 // System.out.print("size 실행 : ");
                 System.out.println(size());
-            } else if (stack.contains("empty")) {
+            } else if (stack.equals("empty")) {
                 // System.out.print("empty 실행 : ");
                 System.out.println(empty());
-            } else if (stack.contains("top")) {
+            } else if (stack.equals("top")) {
                 // System.out.print("top 실행 : ");
                 System.out.println(top());
             }
