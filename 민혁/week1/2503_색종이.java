@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 
 
 
-public class BOJ2503_색종이 {
+public class Main {
     /*
     1. 빈 도화지 생성
     2. 색종이 수만큼 반복(n)

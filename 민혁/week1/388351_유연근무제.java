@@ -16,7 +16,7 @@ package week1;
 시간 복잡도 O(n)
  */
 
-class Pro388351_유연근무제 {
+class Main {
     public int solution(int[] schedules, int[][] timelogs, int startday) {
         int answer = 0;
 
