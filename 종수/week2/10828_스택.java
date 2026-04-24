@@ -5,8 +5,8 @@ import java.util.Scanner;
 class Main {
     static int MaxStackSize = 10000;
     static int[] result = new int[MaxStackSize];// 실제 스택 배열
-    static int size = 0;
-    
+    static int size = 0; //스택 하나의 사이즈를 전역으로 선언
+
     private static void push(int x) {
         result[size++] = x;
     }// push
@@ -44,9 +44,12 @@ class Main {
             
             if (stack.contains("push")) {
                 // System.out.print("push 실행 : ");
-                String[] cmd = stack.split(" ");
+                String[] cmd = stack.split(" "); 
+                //입력받은걸 공백을 기준으로 자르고 두번째에 나온 문자를 인트로 바꿔서 push 함수에 입력
                 push(Integer.parseInt(cmd[1]));
-            } else if (stack.contains("pop")) {
+            } else if (stack.contains("pop")) { 
+                //contain을 쓴 이유는 처음 push를 작성할 때 
+                // 해당 문자를 포함하기만 하면 되지 않나라는 생각에 contain 사용
                 // System.out.print("pop 실행 : ");
                 System.out.println(pop());
             } else if (stack.contains("size")) {
