@@ -13,6 +13,8 @@ public class Main {
     대신 뒤에서 넣고 뒤에서 꺼내는 구조
     앞에서 넣거나 꺼낼때는 배열의 모든 요소를 뒤로 밀어야하기 때문에 시간복잡도 증가
     그러기 위해 포인터를 이용해 문제를 풀 계획
+
+    시간 복잡도 : O(n)
      */
 
     static int N;
@@ -20,13 +22,13 @@ public class Main {
     static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         N = Integer.parseInt(br.readLine()); // 명령 개수 저장
-//        StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int[] myStack = new int[N];
+
+        int[] myStack = new int[N]; // 스택 배열 구현
 
         int pointer = 0; // 포인터의 시작은 0을 가리킴
 
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder(); // 최대 10000개 출력을 위한 스트링빌더
 
         for(int i = 0; i < N; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine());
@@ -36,7 +38,7 @@ public class Main {
                 case "push" :
                     myStack[pointer++] = Integer.parseInt(st.nextToken()); // 넣고 pointer 증가
                     break;
-                case "pop" : //pointer가 배열 마지막 다음을 가리키고 있으니 -1 하고 시행
+                case "pop" : //pointer가 배열의 마지막 다음을 가리키고 있으니 -1 하고 시행
                     if(pointer == 0) {
                         sb.append(-1).append('\n');
                     } else {
