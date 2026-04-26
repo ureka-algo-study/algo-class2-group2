@@ -1,6 +1,6 @@
 package week2;
 
-public class Solution {
+public class Main {
     /*
     문자열의 길이가 1000밖에 안되고 하나밖에 주지 않으니 단계 순서대로 풀어도 된다고 생각
     시간복잡도가 O(n^3) 가 되지 않는 이상 제출조건을 못말출 일은 없을 것이라 생각 (1000^3 = 10억)
