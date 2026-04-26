@@ -20,29 +20,45 @@ public class Solution {
         s = s.toLowerCase();
 
         // 2단계
-        String[] special = new String[] {"~", "!", "@", "#", "$", "%", "^", "&", "*", "(" ,"'" ,")", "=" ,"+" ,"[" ,"{", "]", "}", ",", ":", "?", "<", ">", "/"};
-        for(int i = 0; i < special.length; i ++) {
-            s = s.replace(special[i],"");
-        }
+//        String[] special = new String[] {"~", "!", "@", "#", "$", "%", "^", "&", "*", "(" ,"'" ,")", "=" ,"+" ,"[" ,"{", "]", "}", ",", ":", "?", "<", ">", "/"};
+//        for(int i = 0; i < special.length; i ++) {
+//            s = s.replace(special[i],"");
+//        }
+
+//        s = s.replaceAll("[~!@#$%^&*()=+\\[\\{\\]\\}:?,<>/]", "");  둘 중하나 정규표현식
+        s = s.replaceAll("[^a-z0-9-_.]", "");
 
         // 3단계
-//        s = s.replace("..", ".");  마침표가 세 개 이상인 경우 조건 탈락...  500번 돌려야하나? 나중에 수정하기
-        for(int i = 0; i < 500; i++) {
-            s = s.replace("..", ".");
-        }
+//        1. s = s.replace("..", ".");  마침표가 세 개 이상인 경우 조건 탈락...  500번 돌려야하나? 나중에 수정하기
+//        for(int i = 0; i < 500; i++) {
+//            s = s.replace("..", ".");
+//        }
+//        2. while(s.contains("..")) {
+//            s = s.replace("..", ".");
+//        }
+        // 3.
+        s = s.replaceAll("\\.{2,}",".");
 
         // 4단계 여기서부터는 문자열이 비는 경우를 체크 charAt쓸 때 터질 수 있음
-        if(!s.isEmpty()) {
-            if (s.charAt(0) == '.') {
-                s = s.substring(1);
-            }
+//        if(!s.isEmpty()) {
+//            if (s.charAt(0) == '.') {
+//                s = s.substring(1);
+//            }
+//        }
+//        if(!s.isEmpty()) {
+//            if(s.charAt(s.length() - 1) == '.' ) {
+//                s = s.substring(0,s.length() - 1);
+//            }
+//        }
+
+        if(s.startsWith(".")) {
+            s = s.substring(1);
         }
 
-        if(!s.isEmpty()) {
-            if(s.charAt(s.length() - 1) == '.' ) {
-                s = s.substring(0,s.length() - 1);
-            }
+        if(s.endsWith(".")) {
+            s = s.substring(0,s.length() - 1);
         }
+
 
         // 5단계
         if(s.isEmpty()) {
@@ -50,19 +66,22 @@ public class Solution {
         }
 
         // 6단계
+
         if(s.length() >= 16) {
             s = s.substring(0,15);
+
+            if(s.endsWith(".")) {
+                s = s.substring(0,s.length() - 1);
+            }
         }
 
-        if(s.charAt(s.length() - 1) == '.') {
-            s = s.substring(0,s.length() - 1);
-        }
 
 
 
         // 7단계
         if(s.length() == 1) {
-            s = s + s.charAt(0) + s.charAt(0);
+//          s = s + s.charAt(0) + s.charAt(0);
+            s = s.repeat(3);
         }
 
         if(s.length() == 2) {
