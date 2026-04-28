@@ -48,4 +48,17 @@
     - 파이썬 내장 라이브러리 꾸준히 익힐것
 
 4. 속도차이
-![alt text](image.png)
+
+```bash
+ gimgawon 🚀 > week3 > feat/gawon > python3 43165_타겟넘버.py
+product + list comprehension 결과: 5
+일반 for 브루트포스 결과: 5
+
+반복 횟수: 10000
+product + list comprehension 실행 시간: 0.024722초
+일반 for 브루트포스 실행 시간: 0.057945초
+product + list comprehension 1회 평균 시간: 0.0000024722초
+일반 for 브루트포스 1회 평균 시간: 0.0000057945초
+두 방식의 총 실행 시간 차이: 0.033223초
+product + list comprehension 방식이 약 2.34배 빠릅니다.
+```
