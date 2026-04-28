@@ -1,44 +1,62 @@
-package week3;
+import java.util.*;
 
 public class GameMap {
 	
-	/*
-	 * 0은 벽 1은 길
-	 * 제한조건 100 * 100 지도, 최대 1만
-	 * 
-	 */
+	
 	static int[] dx = {0,0,-1,1};
 	static int[] dy = {1,-1,0,0};
 	static boolean[][] visited;
-	static int count = 0;
+    static int[][] dist;
+    static int N;
+    static int M;
+    
 	
 	public int solution(int[][] maps) {
-        int answer = 0;
-        visited = new boolean[maps.length][maps[0].length];
-        dfs(new int[] {0,0}, new int[] {maps.length,maps[0].length});
-        return answer;
+        
+        N = maps.length;
+        M = maps[0].length;
+        
+        dist = new int[N][M];
+        dist[0][0] = 1; 
+        
+        visited = new boolean[N][M];
+        
+        bfs(maps);
+        
+        if(!visited[N-1][M-1]) {
+            return -1;
+        } 
+        
+        return dist[N-1][M-1];
+        
+    }
+    
+    public static void bfs(int[][]maps) {
+        Deque<int[]> q = new ArrayDeque<>(); 
+        
+        visited[0][0] = true;
+        q.offer(new int[] {0,0});
+        
+        while(!q.isEmpty()) {
+            int[] cur = q.poll();
+            
+            for(int i = 0; i < 4; i ++) {
+                int nx = cur[0] + dx[i];
+                int ny = cur[1] + dy[i];
+                
+                if(nx < 0 || nx >= N || ny < 0 || ny >= M ) { 
+                    continue;
+                }
+                
+                if(!visited[nx][ny] && maps[nx][ny] == 1) {
+                    q.offer(new int[] {nx,ny});
+                    visited[nx][ny] = true;
+                    dist[nx][ny] = dist[cur[0]][cur[1]] + 1;
+                } 
+            }
+        }
     }
 
-	private int dfs(int[] position, int[] target) {
-		if(position == target) {
-			return count;
-		}
-		
-		visited[position[0]][position[1]] = true;
-		
-		for(int i = 0; i < dx.length; i++) {
-			int[] newPosition = {position[0] + dx[i],position[1] + dy[i]};
-			if(newPosition[0] >= 0 && newPosition[0] < visited.length && newPosition[1] >= 0 && newPosition[1] < visited[0].length) {
-				if(!visited[newPosition[0]][newPosition[1]]) {
-					count++;
-					dfs(newPosition,target);
-				}
-			}
-		}
-		
-		// 만약 끝까지 못찾았다?
-		return -1;
-	}
 	
 
 }
