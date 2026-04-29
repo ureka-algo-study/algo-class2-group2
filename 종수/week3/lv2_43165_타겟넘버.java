@@ -5,7 +5,7 @@ class Solution {
     static int arr[];
     static int tg = 0;
     static int count = 0;
-    // 숫자 배열의 조합으로 타겟넘버를 만들어라 -> 순열문제
+    // 숫자 배열의 조합으로 타겟넘버를 만들어라
     public int solution(int[] numbers, int target) {
         int answer = 0;
 
@@ -31,3 +31,34 @@ class Solution {
         dfs(idx + 1, sum - arr[idx]);
     }
 }
+
+// BFS 풀이법
+// class Solution{
+//     public int solution(int[] numbers, int target) {
+//         int answer = 0;
+
+//         Queue<int[]> queue = new ArrayDeque<>();
+//         queue.offer(new int[]{0,0});
+
+//         while(!queue.isEmpty()){
+//             int[] now = queue.poll();
+//             int sum = now[0];
+//             int idx = now[1];
+
+//             if ( idx == numbers.length){
+//                 if( sum == target) answer++;
+//                 continue;
+//             }
+
+//             queue.offer(new int[]{sum + numbers[idx], idx + 1});
+//             queue.offer(new int[]{sum - numbers[idx], idx + 1});
+//         }
+
+
+//         return answer;
+//     }
+
+//     void bfs(){
+
+//     }
+// }
