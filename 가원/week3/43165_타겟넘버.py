@@ -3,6 +3,7 @@ import time
 
 from itertools import product
 
+# 1. CPython 을 적용한 브루트 포스 방법 (무식하게 빠른 브루트포스)
 def solution(numbers, target):
     # 각 숫자마다 (+ , -) 를 선택할 수 있는 옵션들
     # [(1, -1), (2, -2), (-1, 1), ...]
@@ -15,6 +16,7 @@ def solution(numbers, target):
     return case_sums.count(target)
 
 
+# 2. 그냥 일반 반복문을 적용한 브루트 포스 방법 (정석 풀이의 브루트 포스)
 def brute_force_for(numbers, target):
     count = 0
     n = len(numbers)
@@ -36,6 +38,27 @@ def brute_force_for(numbers, target):
     return count
 
 
+# 3. DFS 문제풀이를 이용한 방법
+def solution2_dfs(numbers, target) -> int:
+    answer = dfs_solution(numbers, 0, target, 0)
+    return answer
+
+
+# 4. DFS 문제풀이 방법을 이용하는 solution2 에서 호출할 DFS 함수
+def dfs_solution(numbers, depth, target, result) -> int:
+    if depth == len(numbers):   # 마지막 노드까지 진행했을 때
+        if target == result:    # target 값과 합계가 같다면 True값 1 반환
+            return 1
+        else:
+            return 0    # target 과 같은 값이 없다면 0 반환
+
+    plus = dfs_solution(numbers, depth + 1, target, result + numbers[depth])
+    minus = dfs_solution(numbers, depth + 1, target, result - numbers[depth])
+
+    return plus + minus
+
+
+# 5. 성능 측정 벤치마킹
 def measure_time(func, numbers, target, repeat=1000):
     start = time.perf_counter()
 
