@@ -34,12 +34,11 @@ class Solution {
 
                 int nx = x + dx[i];
                 int ny = y + dy[i];
-
-                if(nx < 0 || ny < 0 || nx >= n || ny >= m) continue;
-
-                if(maps[nx][ny] == 0) continue;
-
-                if(visited[nx][ny] == true) continue;
+                
+                // 가려는 길이
+                if(nx < 0 || ny < 0 || nx >= n || ny >= m) continue; // 맵 밖이라면
+                if(maps[nx][ny] == 0) continue; // 벽이라면 (0 이면 벽)
+                if(visited[nx][ny] == true) continue; //방문을 했었다면
 
                 visited[nx][ny] = true;
                 dist[nx][ny] = dist[x][y] + 1;
