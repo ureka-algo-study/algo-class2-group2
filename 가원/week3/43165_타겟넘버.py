@@ -75,29 +75,38 @@ if __name__ == "__main__":
 
     product_result = solution(test_number, test_target_num)
     brute_force_result = brute_force_for(test_number, test_target_num)
+    dfs_result = solution2_dfs(test_number, test_target_num)
 
     print(f"product + list comprehension 결과: {product_result}")
     print(f"일반 for 브루트포스 결과: {brute_force_result}")
+    print(f"DFS 결과: {dfs_result}")
 
     repeat = 10000
-    product_time = measure_time(solution, test_number, test_target_num, repeat)
-    brute_force_time = measure_time(brute_force_for, test_number, test_target_num, repeat)
-    product_avg_time = product_time / repeat
-    brute_force_avg_time = brute_force_time / repeat
-    time_difference = abs(product_time - brute_force_time)
+    benchmarks = [
+        ("product + list comprehension", solution),
+        ("일반 for 브루트포스", brute_force_for),
+        ("DFS", solution2_dfs),
+    ]
+
+    benchmark_results = []
+    for name, func in benchmarks:
+        total_time = measure_time(func, test_number, test_target_num, repeat)
+        avg_time = total_time / repeat
+        benchmark_results.append((name, total_time, avg_time))
 
     print(f"\n반복 횟수: {repeat}")
-    print(f"product + list comprehension 실행 시간: {product_time:.6f}초")
-    print(f"일반 for 브루트포스 실행 시간: {brute_force_time:.6f}초")
-    print(f"product + list comprehension 1회 평균 시간: {product_avg_time:.10f}초")
-    print(f"일반 for 브루트포스 1회 평균 시간: {brute_force_avg_time:.10f}초")
-    print(f"두 방식의 총 실행 시간 차이: {time_difference:.6f}초")
+    for name, total_time, avg_time in benchmark_results:
+        print(f"{name} 실행 시간: {total_time:.6f}초")
+        print(f"{name} 1회 평균 시간: {avg_time:.10f}초")
 
-    if product_time < brute_force_time:
-        speed_ratio = brute_force_time / product_time
-        print(f"product + list comprehension 방식이 약 {speed_ratio:.2f}배 빠릅니다.")
-    elif product_time > brute_force_time:
-        speed_ratio = product_time / brute_force_time
-        print(f"일반 for 브루트포스 방식이 약 {speed_ratio:.2f}배 빠릅니다.")
-    else:
-        print("두 방식의 실행 시간이 거의 같습니다.")
+    fastest_name, fastest_time, _ = min(benchmark_results, key=lambda x: x[1])
+    slowest_name, slowest_time, _ = max(benchmark_results, key=lambda x: x[1])
+    time_difference = slowest_time - fastest_time
+
+    print(f"\n가장 빠른 방식: {fastest_name}")
+    print(f"가장 느린 방식: {slowest_name}")
+    print(f"가장 빠른 방식과 가장 느린 방식의 총 실행 시간 차이: {time_difference:.6f}초")
+
+    if fastest_time > 0:
+        speed_ratio = slowest_time / fastest_time
+        print(f"{fastest_name} 방식이 {slowest_name} 방식보다 약 {speed_ratio:.2f}배 빠릅니다.")
