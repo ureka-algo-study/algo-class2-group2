@@ -1,56 +1,52 @@
 package 종수.week3;
+
 class Solution {
 
-    static boolean visited[];
-    static int arr[];
+    static boolean[] visited;
+    static int[] card;
+    static int max1;
+    static int max2;
+    static int count;
+
     public int solution(int[] cards) {
         int answer = 0;
-        arr = cards.clone();
-        visited = new boolean[cards.length];
 
-        int max = 0, max2 = 0;
-        int tmp = 0;
-        for(int i = 0; i < cards.length; i++){ // 한번씩 다 돌아야 하니까
-            int size = dfs(i);
-            if(size >= max2){ // 결과 중 가장 큰 값을 찾기위해 큰값 2개를 선별
-                max2 = size;
-                if(max2 > max){
-                    tmp = max;
-                    max = max2;
-                    max2 = tmp;
-                }
+        max1 = 0;
+        max2 = 0;
+        count = 0;// 초기화를 solution 안에서
+
+        int n = cards.length;
+        visited = new boolean[n];
+        card = cards.clone();
+
+        for (int i = 0; i < n; i++) {
+            if (visited[i] == true) {
+                continue;
             }
+            dfs(i);
+            if (count > max1) {//최댓값 2개 뽑는 로직 틀려서 다시 작성
+                max2 = max1;
+                max1 = count;
+            } else if (count > max2) {
+                max2 = count;
+            }
+            // System.out.println("최댓값 확인 : " + max1 + " " + max2);
+            count = 0;
         }
-
-        answer = max * max2;
-        return answer;
+        if (max2 == 0)
+            return 0; // 빠트린 조건;
+        return max1 * max2;
     }
 
-    int dfs(int n){
-        int count = 0;
-        
-        while(!visited[n]){
-            visited[n] =true;
-            n = arr[n] - 1;
-            count++;
+    void dfs(int index) {
+
+        if (visited[index] == true) {
+            return;
         }
 
-        return count;
-
+        visited[index] = true;
+        // System.out.println(index + "번째 방문확인");
+        dfs(card[index] - 1);
+        count++;
     }
 }
-
-
-// 1부터 100까지 숫자가 적힌 카드 준비
-// 2이상 100 이하의 자연수 하나를 정해 그 수보다 작거나 같은 카드들을 추출
-// 추출한 카드의 숫자와 같은 갯수의 상자 준비
-
-// 상자에 카드를 한장씩 넣고 무작위로 섞어 일렬로 나열
-// 나열된 상자에 1번부터 순서대로 번호를 부여
-// 
-
-
-// 중략
-
-// 최고점수 2개를 구해라
-// 큰 수 2개 구해서 곱하기
