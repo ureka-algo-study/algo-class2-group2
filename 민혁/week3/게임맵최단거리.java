@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class GameMap {
+public class Solution {
 	
 	
 	static int[] dx = {0,0,-1,1};
