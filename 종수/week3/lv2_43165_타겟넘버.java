@@ -6,7 +6,6 @@ class Solution {
     static int t;
 
     public int solution(int[] numbers, int target) {
-        int answer = 0;
         count = 0;
         number = numbers.clone();
         t = target;

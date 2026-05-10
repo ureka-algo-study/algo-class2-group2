@@ -9,7 +9,6 @@ class Solution {
     static int count;
 
     public int solution(int[] cards) {
-        int answer = 0;
 
         max1 = 0;
         max2 = 0;
