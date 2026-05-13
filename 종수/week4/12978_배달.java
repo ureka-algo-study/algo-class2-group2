@@ -21,7 +21,7 @@ class Solution {
     }
 
     public int solution(int N, int[][] road, int K) {
-
+        @SuppressWarnings("unchecked")// unchecked 경고문 제거
         ArrayList<Node>[] graph = new ArrayList[N + 1];
 
         for (int i = 1; i <= N; i++) {
