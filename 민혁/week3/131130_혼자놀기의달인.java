@@ -13,7 +13,6 @@ public class Solution {
 
         List<Integer> cycles = new ArrayList<>(); //사이클의 길이를 담을 배열
         visited = new boolean[cards.length]; // 카드 검사 유무
-
         for(int i = 0 ; i < cards.length; i ++) {
             if(visited[i]) continue; // 이미 방문했으면 continue;
 
