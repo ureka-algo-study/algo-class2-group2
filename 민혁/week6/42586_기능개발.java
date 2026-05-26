@@ -39,12 +39,12 @@ class Solution {
 
             }
 
-            for(int i = toDo.size() - 1; i < 0; i --) {
+            for(int i = toDo.size() - 1; i >= 0; i --) {
                 Task task = toDo.get(i);
 
                 if(task.progress >= 100) {
-                    toDo.remove(task);
-                    finished.offer(task);
+                    toDo.remove(i);
+                    finished.offer(task); //배포가능 후보로 이동
                 }
             }
 
@@ -57,11 +57,14 @@ class Solution {
                 commit++;
                 count++;
             }
-            result.add(count);
+            if(count > 0) {
+                result.add(count);
+            }
+
         }
 
 
-        return result.stream().filter(i -> i != 0).mapToInt(i -> i).toArray();
+        return result.stream().mapToInt(i -> i).toArray();
 
     }
 }
