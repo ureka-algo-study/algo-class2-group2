@@ -1,4 +1,4 @@
-package LeetCode;
+package 종수.week8;
 import java.util.*;
 
 //친구들아 미안해!!!

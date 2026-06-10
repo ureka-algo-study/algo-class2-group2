@@ -1,4 +1,4 @@
-package 프로그래머스;
+package 종수.week8;
 
 import java.util.Collections;
 import java.util.PriorityQueue;
