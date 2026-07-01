@@ -1,4 +1,4 @@
-package 프로그래머스;
+package 종수.week11;
 
 import java.util.Arrays;
 
