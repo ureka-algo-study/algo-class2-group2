@@ -10,10 +10,12 @@ GitHub Actions가 매일 커밋 수를 집계해 아래 영역을 자동으로 �
 <!-- COMMIT_RANKING:START -->
 | 순위 | 이름 | 커밋 수 |
 | --- | --- | --- |
-| 🥇 | Minhyeok Choi | 2 |
-| 🥈 | alsthdua107 | 1 |
+| 🥇 | Minhyeok Choi | 3 |
+| 🥈 | 이진희 | 1 |
+| 🥉 | Seok_Soo | 1 |
+| 4 | alsthdua107 | 1 |
 
-마지막 업데이트: 2026-08-05 01:56 KST
+마지막 업데이트: 2026-08-05 18:04 KST
 <!-- COMMIT_RANKING:END -->
 
 > 커밋 수는 재미용 지표입니다☺️ 실제로는 문제풀이 방식 및 사고과정이 더 중요합니다😆
